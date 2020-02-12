@@ -16,13 +16,13 @@ docker pull markus621/angular-cli
 ### install:
 
 ```bash
-docker pull markus621/php-prof:0.742.0
+docker pull markus621/php-prof
 ```
 
 ### run:
 
 ```bash
-docker run --rm --name phpprof -it -v /local/dir:/var/www -p 9000-9003:9000-9003 markus621/php-prof:0.742.0
+docker run --rm --name phpprof -it -v /local/dir:/var/www -p 9000-9003:9000-9003 markus621/php-prof
 ```
 
 ### ports:
