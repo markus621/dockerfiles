@@ -11,5 +11,8 @@ build:
 	@if [ ! -d "${RUN_ARGS}" ]; then exit 3; fi
 	@cd $(RUN_ARGS) &&\
 	docker build -t markus621/$(RUN_ARGS):$(VERSION) . &&\
-	docker push markus621/$(RUN_ARGS):$(VERSION)
+	docker push markus621/$(RUN_ARGS):$(VERSION) &&\
+	docker build -t markus621/$(RUN_ARGS):latest . &&\
+	docker push markus621/$(RUN_ARGS):latest
+
 
