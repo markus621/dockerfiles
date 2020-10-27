@@ -10,9 +10,9 @@ build:
 	@if [ -z "${VERSION}" ]; then exit 3; fi
 	@if [ ! -d "${RUN_ARGS}" ]; then exit 3; fi
 	@cd $(RUN_ARGS) &&\
-	docker build --network=host -t markus621/$(RUN_ARGS):$(VERSION) . &&\
+	docker build -t markus621/$(RUN_ARGS):$(VERSION) . &&\
 	docker push markus621/$(RUN_ARGS):$(VERSION) &&\
-	docker build --network=host -t markus621/$(RUN_ARGS):latest . &&\
+	docker build -t markus621/$(RUN_ARGS):latest . &&\
 	docker push markus621/$(RUN_ARGS):latest
 
 

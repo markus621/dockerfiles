@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-cd /data && \
-    npm install && \
-    npm run start
+for (( ; ; ))
+do
+   sleep 60s
+done
 
