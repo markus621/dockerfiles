@@ -3,7 +3,7 @@ FROM node:12.22.3-alpine
 RUN apk update && \
     apk add --virtual build-dependencies build-base gcc && \
     apk add --no-cache bash git make python3 curl && \
-    npm install -g @angular/cli@10.2.3
+    npm install -g @angular/cli@11.2.14
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
