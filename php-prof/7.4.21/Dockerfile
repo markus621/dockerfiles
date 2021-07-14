@@ -1,4 +1,4 @@
-FROM php:7.4.2-fpm-alpine3.11
+FROM php:7.4.21-fpm-alpine3.11
 
 USER root
 
@@ -16,19 +16,19 @@ RUN set -xe \
 
 
 RUN export CFLAGS="-I/usr/src/php" \
-            && pecl install -o -f redis-5.1.1 xdebug-2.9.2 mongodb-1.6.1 mcrypt-1.0.3 amqp-1.9.4 xhprof-2.1.3 \
-            && docker-php-ext-configure gd --with-webp --with-jpeg --with-xpm --with-freetype \
-            && docker-php-ext-install -j$(nproc) \
-            gettext xmlreader bcmath bz2 calendar ctype curl dba dom exif fileinfo filter ftp gd \
-            intl json mbstring mysqli pcntl pgsql pdo pdo_mysql pdo_pgsql pdo_sqlite \
-            posix readline session shmop simplexml soap sockets sodium sysvmsg \
-            sysvsem sysvshm tidy tokenizer xml xmlrpc xmlwriter xsl zip
+        && pecl install -o -f redis-5.1.1 xdebug-2.9.2 mongodb-1.6.1 mcrypt-1.0.3 amqp-1.9.4 xhprof-2.1.3 \
+        && docker-php-ext-configure gd --with-webp --with-jpeg --with-xpm --with-freetype \
+        && docker-php-ext-install -j$(nproc) \
+        gettext xmlreader bcmath bz2 calendar ctype curl dba dom exif fileinfo filter ftp gd \
+        intl json mbstring mysqli pcntl pgsql pdo pdo_mysql pdo_pgsql pdo_sqlite \
+        posix readline session shmop simplexml soap sockets sodium sysvmsg \
+        sysvsem sysvshm tidy tokenizer xml xmlrpc xmlwriter xsl zip
 
 RUN docker-php-ext-enable \
-                gettext xmlreader bcmath bz2 calendar ctype curl dba dom exif fileinfo filter ftp gd \
-                intl json mbstring mysqli pcntl pgsql pdo pdo_mysql pdo_pgsql pdo_sqlite \
-                posix readline session shmop simplexml soap sockets sodium sysvmsg \
-                sysvsem sysvshm tidy tokenizer xml xmlrpc xmlwriter xsl zip
+        gettext xmlreader bcmath bz2 calendar ctype curl dba dom exif fileinfo filter ftp gd \
+        intl json mbstring mysqli pcntl pgsql pdo pdo_mysql pdo_pgsql pdo_sqlite \
+        posix readline session shmop simplexml soap sockets sodium sysvmsg \
+        sysvsem sysvshm tidy tokenizer xml xmlrpc xmlwriter xsl zip
 
 RUN git clone https://github.com/longxinH/xhprof.git /tmp/xhprof \
         && mkdir -p /tools/xhprof \

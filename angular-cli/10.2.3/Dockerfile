@@ -1,9 +1,10 @@
-FROM node:14.17.3-alpine
+FROM node:12.22.3-alpine
 
 RUN apk update && \
     apk add --virtual build-dependencies build-base gcc && \
-    apk add --no-cache bash git make python3 curl && \
-    npm install -g @angular/cli@12.1.1
+    apk add --no-cache bash git make python3 curl 
+
+RUN npm i -g @angular/cli@10.2.3
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
