@@ -20,5 +20,10 @@ publish: validate build
 	@cd $(APP)/$(VERSION) &&\
 	docker buildx build --push --platform linux/amd64,linux/arm64 --tag markus621/$(APP):$(VERSION) .
 
+.PHONY: publish_latest
+publish_latest: publish
+	@cd $(APP)/$(VERSION) &&\
+	docker buildx build --push --platform linux/amd64,linux/arm64 --tag markus621/$(APP):latest .
+
 # UBUNTU:
 # apt-get install qemu qemu-user-static binfmt-support debootstrap -y
