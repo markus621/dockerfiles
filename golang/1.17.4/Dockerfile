@@ -1,9 +1,11 @@
 FROM golang:1.17.4-alpine3.14
 
-ENV GO111MODULE=on
-
 RUN apk update && \
-    apk add --virtual build-dependencies build-base gcc && \
-    apk add --no-cache bash git make python3
+    apk add --no-cache --virtual .build-deps build-base gcc && \
+    apk add --no-cache bash curl git make python3 consul-template && \
+    apk del .build-deps
+
+COPY healthcheck.sh /healthcheck.sh
+RUN chmod +x /healthcheck.sh
 
 WORKDIR /app
